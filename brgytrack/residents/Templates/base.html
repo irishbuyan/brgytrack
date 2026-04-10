@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.logo {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+/* ICON DESIGN */
+.logo-icon {
+    width:45px;
+    height:45px;
+    background:linear-gradient(135deg, #3498db, #2ecc71);
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* TEXT DESIGN */
+.logo-text {
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+.main-text {
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+}
+
+.highlight {
+    color:#3498db;
+}
+
+.sub-text {
+    font-size:11px;
+    color:#bdc3c7;
+}
+</style>  
+
+<div class="navbar">
+    {% include 'logo.html' %}
+</div>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings | BrgyTrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Simple styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .nav {
+            background: #2c3e50;
+            padding: 15px;
+            color: white;
+        }
+
+        .nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'residents_list' %}">Residents</a>
+        <a href="{% url 'settings' %}">Settings</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <div class="container">
+        <h2>Account Settings</h2>
+
+        <!-- Profile Settings -->
+        <div class="card">
+            <h3>Profile Information</h3>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <label>Full Name</label>
+                <input type="text" name="full_name" value="{{ user.get_full_name }}">
+
+                <label>Email</label>
+                <input type="email" name="email" value="{{ user.email }}">
+
+                <label>Username</label>
+                <input type="text" name="username" value="{{ user.username }}">
+
+                <button type="submit" name="update_profile">Update Profile</button>
+            </form>
+        </div>
+
+        <!-- Change Password -->
+        <div class="card">
+            <h3>Change Password</h3>
+            <form method="POST">
+                {% csrf_token %}
+
+                <label>Current Password</label>
+                <input type="password" name="current_password">
+
+                <label>New Password</label>
+                <input type="password" name="new_password">
+
+                <label>Confirm New Password</label>
+                <input type="password" name="confirm_password">
+
+                <button type="submit" name="change_password">Change Password</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

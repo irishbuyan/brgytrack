@@ -1,0 +1,110 @@
+function showContent(section) {
+    let content = document.getElementById("content");
+
+    function centerBox(inner) {
+        return `
+        <div style="
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:250px;
+        ">
+            <div style="
+                width:90%;
+                max-width:650px;
+                background: linear-gradient(135deg, #ffffff, #f8f9fa);
+                padding:30px;
+                border-radius:16px;
+                box-shadow:0 8px 20px rgba(0,0,0,0.1);
+                border-top:5px solid #3498db;
+            ">
+                ${inner}
+            </div>
+        </div>
+        `;
+    }
+
+    if(section === "residents") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:15px;">👥 Resident Management</h2>
+
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="text" placeholder="Full Name">
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="number" placeholder="Age">
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="text" placeholder="Address">
+
+            <button style="width:100%;padding:12px;margin-top:10px;background:#3498db;color:white;border:none;border-radius:8px;">
+                Add Resident
+            </button>
+        `);
+    }
+
+    else if(section === "blotter") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:15px;">📋 Blotter Records</h2>
+
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="text" placeholder="Complainant">
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="text" placeholder="Respondent">
+            <textarea style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" placeholder="Complaint Details"></textarea>
+
+            <button style="width:100%;padding:12px;margin-top:10px;background:#e74c3c;color:white;border:none;border-radius:8px;">
+                Submit Case
+            </button>
+        `);
+    }
+
+    else if(section === "certificates") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:15px;">📄 Certificates</h2>
+
+            <button style="width:100%;padding:12px;margin:6px 0;background:#27ae60;color:white;border:none;border-radius:8px;">
+                Barangay Clearance
+            </button>
+            <button style="width:100%;padding:12px;margin:6px 0;background:#2980b9;color:white;border:none;border-radius:8px;">
+                Indigency Certificate
+            </button>
+            <button style="width:100%;padding:12px;margin:6px 0;background:#8e44ad;color:white;border:none;border-radius:8px;">
+                Residency Certificate
+            </button>
+        `);
+    }
+
+    else if(section === "reports") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:15px;">📊 Reports</h2>
+
+            <div style="background:#ecf0f1;padding:10px;border-radius:8px;margin:5px 0;">
+                Total Residents: 120
+            </div>
+            <div style="background:#fff3cd;padding:10px;border-radius:8px;margin:5px 0;">
+                Active Cases: 5
+            </div>
+            <div style="background:#d4edda;padding:10px;border-radius:8px;margin:5px 0;">
+                Certificates Issued: 30
+            </div>
+
+            <button style="width:100%;padding:12px;margin-top:10px;background:#2c3e50;color:white;border:none;border-radius:8px;">
+                Generate Report
+            </button>
+        `);
+    }
+
+    else if(section === "settings") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:15px;">⚙ Settings</h2>
+
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="text" placeholder="Username">
+            <input style="width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #ddd;" type="password" placeholder="Password">
+
+            <button style="width:100%;padding:12px;margin-top:10px;background:#34495e;color:white;border:none;border-radius:8px;">
+                Save Changes
+            </button>
+        `);
+    }
+
+    else if(section === "logout") {
+        content.innerHTML = centerBox(`
+            <h2 style="margin-bottom:10px;">🚪 Logout</h2>
+            <p>You have been logged out.</p>
+        `);
+    }
+}

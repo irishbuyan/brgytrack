@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | BrgyTrack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-box i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background: #2980b9;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <i class="fas fa-user-shield"></i>
+        <h2>BrgyTrack Login</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>
